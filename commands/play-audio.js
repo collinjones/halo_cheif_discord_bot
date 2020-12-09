@@ -19,15 +19,31 @@ module.exports = {
 				file_name = file;
 			});
 
-			// join the voice channel that the message was sent in
-			const connection = await message.member.voice.channel.join();
+			// declare the connection variable
+			let connection;
 
+			// VALIDATE that the caller is in a voice channel
+			try {
+				// join the voice channel that the message was sent in
+				connection = await message.member.voice.channel.join();
+			}
+			catch (error) {
+				message.channel.send('You must be in a voice channel to activate me');
+				return;
+			}
 			// Create a dispatcher for the audio file
 			const dispatcher = connection.play('D:\\Users\\Collin\\Desktop\\halo_chief_bot\\samples\\' + file_name);
 
 			// Start the dispatcher
 			dispatcher.on('start', () => {
 				console.log(file_name + ' is now playing!');
+
+				// Remove the .xxx from the end of the file
+				let chief_sentance = file_name.substring(0, file_name.length - 4);
+				// Replace (questionmark) with '?'
+				chief_sentance = chief_sentance.replace('(questionmark)', '?');
+				// Output the formatted sentance into the text channel
+				message.channel.send(chief_sentance);
 			});
 
 			// finish the dispatcher

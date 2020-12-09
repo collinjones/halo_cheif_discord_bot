@@ -42,7 +42,7 @@ client.on('message', async message => {
 		return;
 	}
 
-	// try/catch block won't crash program if there was an error
+	// == COMMAND EXECUTION ==
 	try {
 		// get() the command and call its execute() method
 		client.commands.get(command).execute(message, args);
