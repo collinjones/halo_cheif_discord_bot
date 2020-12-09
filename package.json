@@ -4,7 +4,11 @@
   "description": "A Master Chief discord bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "11.1.0",
+    "request": "2.81.0"
   },
   "keywords": [],
   "author": "Collin Jones",
