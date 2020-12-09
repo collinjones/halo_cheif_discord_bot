@@ -53,5 +53,3 @@ client.on('message', async message => {
 		message.reply('there was an error trying to execute that command!');
 	}
 });
-
-client.login();

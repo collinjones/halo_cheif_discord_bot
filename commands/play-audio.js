@@ -12,7 +12,7 @@ module.exports = {
 			let file_name = '';
 
 			// sample directory for bot
-			const dir = '\\samples';
+			const dir = './samples';
 
 			// random file selector function
 			randomFile(dir, (err, file) => {
@@ -32,7 +32,7 @@ module.exports = {
 				return;
 			}
 			// Create a dispatcher for the audio file
-			const dispatcher = connection.play('\\samples\\' + file_name);
+			const dispatcher = connection.play('./samples/' + file_name);
 
 			// Start the dispatcher
 			dispatcher.on('start', () => {
