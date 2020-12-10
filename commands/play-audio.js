@@ -41,7 +41,7 @@ module.exports = {
 				// Remove the .xxx from the end of the file
 				let chief_sentance = file_name.substring(0, file_name.length - 4);
 				// Replace (questionmark) with '?'
-				chief_sentance = chief_sentance.replace('(questionmark)', '?');
+				chief_sentance = chief_sentance.replaceAll('(questionmark)', '?');
 				// Output the formatted sentance into the text channel
 				message.channel.send(chief_sentance);
 			});
