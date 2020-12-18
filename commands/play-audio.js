@@ -7,18 +7,18 @@ module.exports = {
 		playAudio();
 
 		async function playAudio() {
-			let dir = '';
+			// Variable Declaractions
+			let dir;
+			let file_name = '';
 
 			// sample directory for bot
-			if (args[0] == 'question') {
+			if (args[0] == '8ball') {
 				dir = './samples/8ball';
 			}
 			else {
 				dir = './samples';
 			}
 
-			// variable to keep track of random file name
-			let file_name = '';
 
 			// random file selector function
 			randomFile(dir, (err, file) => {
