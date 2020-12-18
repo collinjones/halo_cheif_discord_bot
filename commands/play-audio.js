@@ -12,7 +12,7 @@ module.exports = {
 			let file_name = '';
 
 			// sample directory for bot
-			if (args[0] == '8ball') {
+			if (args[0] == 'question') {
 				dir = './samples/8ball';
 			}
 			else {
