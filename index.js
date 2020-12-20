@@ -46,7 +46,7 @@ client.on('message', async message => {
 	// == COMMAND EXECUTION ==
 	try {
 		// get() the command and call its execute() method
-		client.commands.get(command).execute(message, args);
+		client.commands.get(command).execute(message, args, client);
 	}
 	catch (error) {
 		console.error(error);

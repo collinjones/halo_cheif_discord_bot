@@ -1,8 +1,9 @@
 const randomFile = require('select-random-file');
+const discordTTS = require('discord-tts');
 module.exports = {
 	name: 'halo',
 	description: 'Master Chief responds with random one-liner.',
-	execute(message, args) {
+	execute(message, args, client) {
 		// call the playAudio() function to execute the code
 		playAudio();
 
@@ -37,10 +38,11 @@ module.exports = {
 				return;
 			}
 			// Create a dispatcher for the audio file
-			const dispatcher = connection.play('./samples/' + file_name);
+			let dispatcher = connection.play('./samples/' + file_name);
 
 			// Start the dispatcher
 			dispatcher.on('start', () => {
+				const broadcast = client.voice.createBroadcast();
 				console.log(file_name + ' is now playing!');
 
 				// Remove the .xxx from the end of the file
@@ -48,7 +50,9 @@ module.exports = {
 				// Replace (questionmark) with '?'
 				chief_sentance = chief_sentance.replace(/(?:^|\W)(questionmark)(?:$|\W)/g, '?');
 				// Output the formatted sentance into the text channel
-				message.channel.send('/tts' + chief_sentance);
+				message.channel.send(chief_sentance);
+				broadcast.play(discordTTS.getVoiceStream(chief_sentance));
+				dispatcher = connection.play(broadcast);
 			});
 
 			// finish the dispatcher
