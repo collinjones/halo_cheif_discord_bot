@@ -19,7 +19,6 @@ module.exports = {
 				dir = './samples';
 			}
 
-
 			// random file selector function
 			randomFile(dir, (err, file) => {
 				file_name = file;
@@ -49,7 +48,7 @@ module.exports = {
 				// Replace (questionmark) with '?'
 				chief_sentance = chief_sentance.replace(/(?:^|\W)(questionmark)(?:$|\W)/g, '?');
 				// Output the formatted sentance into the text channel
-				message.channel.send(chief_sentance);
+				message.channel.send('/tts' + chief_sentance);
 			});
 
 			// finish the dispatcher
@@ -63,6 +62,8 @@ module.exports = {
 
 			// Always remember to handle errors appropriately!
 			dispatcher.on('error', console.error);
+
+			return file_name;
 		}
 	},
 };
