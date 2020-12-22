@@ -1,4 +1,4 @@
-const talkify = require('talkify-tts');
+const talkify = require('talkify.js');
 module.exports = {
 	name: 't2s',
 	description: 'text-to-speech',
