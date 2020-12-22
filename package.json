@@ -13,7 +13,8 @@
   "dependencies": {
     "discord-tts": "^1.0.3",
     "discord.js": "11.1.0",
-    "request": "2.81.0"
+    "request": "2.81.0",
+    "talkify-tts": "^3.6.0"
   },
   "keywords": [],
   "author": "Collin Jones",
