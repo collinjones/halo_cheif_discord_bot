@@ -1,8 +1,8 @@
 // require the discord.js module
 const fs = require('fs');
 const Discord = require('discord.js');
-const token = "!"; //process.env.token;
-const prefix = "Nzg2MDQ4MzY1Njc4NTU5MjQy.X9Aulg.WBrZhxTuOxlRj0Y5AC5F9fytkCc"; // process.env.prefix;
+const token = process.env.token;
+const prefix = process.env.prefix;
 
 // create a new Discord client
 const client = new Discord.Client();
