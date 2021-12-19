@@ -12,11 +12,13 @@ const prefix = process.env.prefix;
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
+
 // read in the command files from the /.commands folder
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
+	
 	// set a new item in the Collection
 	// with the key as the command name and the value as the exported module
 	client.commands.set(command.name, command);
@@ -32,6 +34,7 @@ client.once('ready', () => {
 client.login(token);
 
 client.on('message', async message => {
+	
 	// if the message does not starts with the prefix OR the message is from a bot, exit early
 	if (!message.content.startsWith(prefix) || message.author.bot) {
 		return;
@@ -39,6 +42,7 @@ client.on('message', async message => {
 
 	// slice the additional args into an array
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
+	
 	// lower all args and assign to command variable
 	const command = args.shift().toLowerCase();
 
