@@ -1,10 +1,15 @@
-// require the discord.js module
+/* Copyright (C) Collin Jones LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ * Written by Collin Jones <collinjonesllc@gmail.com>, December 2020
+ */
+
 const fs = require('fs');
 const Discord = require('discord.js');
 const token = process.env.token;
 const prefix = process.env.prefix;
 
-// create a new Discord client
+
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 // read in the command files from the /.commands folder
